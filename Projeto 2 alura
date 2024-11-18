@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .escolha {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Jornada do Guardião das Chamas</h1>
+    <div id="historia">
+        <p>Você é um jovem aventureiro que recebeu a missão de encontrar a lendária Chama Eterna, uma fonte de poder capaz de proteger seu vilarejo das sombras crescentes. Sua jornada começa na entrada de uma antiga floresta. Há um caminho sombreado à sua esquerda, cheio de cipós, e um caminho claro à sua direita, que leva a um campo aberto.</p>
+    </div>
+    <div class="escolha">
+        <button onclick="escolher('floresta')">Seguir pelo caminho sombreado</button>
+        <button onclick="escolher('campo')">Seguir pelo caminho claro</button>
+    </div>
+
+    <script>
+        function escolher(caminho) {
+            let historiaDiv = document.getElementById('historia');
+            if (caminho === 'floresta') {
+                historiaDiv.innerHTML = `
+                    <p>Você adentra a floresta e sente uma presença mística. Um corvo de penas brilhantes aparece e oferece uma escolha: segui-lo até a árvore dos segredos ou ignorá-lo e explorar por conta própria.</p>
+                    <div class="escolha">
+                        <button onclick="escolher('seguirCorvo')">Seguir o corvo</button>
+                        <button onclick="escolher('explorarSozinho')">Explorar por conta própria</button>
+                    </div>
+                `;
+            } else if (caminho === 'campo') {
+                historiaDiv.innerHTML = `
+                    <p>Você segue pelo campo e logo se depara com um viajante misterioso que carrega um mapa antigo. Ele diz que conhece o caminho para a Chama Eterna, mas em troca, pede que você recite um juramento de lealdade.</p>
+                    <div class="escolha">
+                        <button onclick="escolher('recitarJuramento')">Recitar o juramento</button>
+                        <button onclick="escolher('recusarJuramento')">Recusar e continuar sozinho</button>
+                    </div>
+                `;
+            } else if (caminho === 'seguirCorvo') {
+                historiaDiv.innerHTML = `
+                    <p>O corvo leva você a uma árvore majestosa com runas brilhantes. Ela fala com você e revela um segredo sobre um atalho perigoso que leva diretamente à Chama Eterna, mas avisa sobre a presença de um guardião feroz.</p>
+                    <div class="escolha">
+                        <button onclick="escolher('atalho')">Seguir pelo atalho</button>
+                        <button onclick="escolher('caminhoSeguro')">Buscar um caminho mais seguro</button>
+                    </div>
+                `;
+            } else if (caminho === 'explorarSozinho') {
+                historiaDiv.innerHTML = `
+                    <p>Você decide explorar a floresta por conta própria e descobre uma caverna oculta. Lá dentro, uma velha biblioteca mágica guarda um pergaminho que pode ajudá-lo a encontrar a Chama Eterna, mas tocar no pergaminho ativa uma armadilha mágica.</p>
+                    <div class="escolha">
+                        <button onclick="escolher('pegarPergaminho')">Pegar o pergaminho</button>
+                        <button onclick="escolher('deixarPergaminho')">Deixar o pergaminho e sair</button>
+                    </div>
+                `;
+            } else if (caminho === 'recitarJuramento') {
+                historiaDiv.innerHTML = `
+                    <p>O viajante sorri e entrega o mapa. Seguindo-o, você encontra um vale encantado onde a Chama Eterna repousa em um altar de cristal. No entanto, o guardião do altar aparece, testando seu coração e determinação.</p>
+                    <div class="escolha">
+                        <button onclick="escolher('enfrentarGuardiao')">Enfrentar o guardião</button>
+                        <button onclick="escolher('tentarDialogo')">Tentar dialogar com o guardião</button>
+                    </div>
+                `;
+            } else if (caminho === 'recusarJuramento') {
+                historiaDiv.innerHTML = `
+                    <p>Você recusa o juramento e segue por conta própria. Mais tarde, você encontra um velho santuário com inscrições que falam sobre a Chama Eterna. A jornada se torna mais solitária, mas você sente uma paz interior ao confiar em si mesmo.</p>
+                    <p><em>Fim da primeira parte da aventura. Sua jornada continua...</em></p>
+                `;
+            } else if (caminho === 'atalho') {
+                historiaDiv.innerHTML = `
+                    <p>Você decide seguir pelo atalho e encontra o guardião: um dragão antigo de olhos flamejantes. Com coragem, você enfrenta seu maior desafio.</p>
+                    <p><em>Fim da primeira parte da aventura. O desfecho se aproxima...</em></p>
+                `;
+            } else if (caminho === 'caminhoSeguro') {
+                historiaDiv.innerHTML = `
+                    <p>Você escolhe o caminho mais seguro e descobre aliados pelo caminho: espíritos antigos que guiam você em direção à Chama Eterna.</p>
+                    <p><em>Fim da primeira parte. Os aliados prometem ajudá-lo a superar o próximo obstáculo.</em></p>
+                `;
+            } else if (caminho === 'pegarPergaminho') {
+                historiaDiv.innerHTML = `
+                    <p>Você pega o pergaminho e sente uma energia poderosa. A armadilha mágica se ativa, mas você a supera com astúcia, revelando um mapa secreto da floresta.</p>
+                    <p><em>Fim da primeira parte. Você se prepara para seguir com nova confiança.</em></p>
+                `;
+            } else if (caminho === 'deixarPergaminho') {
+                historiaDiv.innerHTML = `
+                    <p>Você decide deixar o pergaminho e, ao sair da caverna, encontra uma luz misteriosa que parece guiá-lo em segurança pela floresta.</p>
+                    <p><em>Fim da primeira parte. O destino lhe sorri.</em></p>
+                `;
+            } else if (caminho === 'enfrentarGuardiao') {
+                historiaDiv.innerHTML = `
+                    <p>Você enfrenta o guardião com bravura, e a batalha é épica. Com habilidade e coração puro, você o derrota e a Chama Eterna é sua.</p>
+                    <p><em>Fim da primeira parte. O vilarejo será salvo.</em></p>
+                `;
+            } else if (caminho === 'tentarDialogo') {
+                historiaDiv.innerHTML = `
+                    <p>Você tenta dialogar com o guardião e, surpreendentemente, ele se acalma. Ele revela que a verdadeira prova era a compaixão e lhe concede a Chama Eterna sem mais obstáculos.</p>
+                    <p><em>Fim da primeira parte. A vitória é alcançada com sabedoria.</em></p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
